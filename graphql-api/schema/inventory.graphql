@@ -1,0 +1,32 @@
+type Product {
+  id: ID!
+  name: String!
+  quantity: Int!
+}
+
+type StockChange {
+  id: ID!
+  productId: ID!
+  delta: Int!
+  timestamp: String!
+}
+
+type StockAlert {
+  product: Product!
+  message: String!
+}
+
+type Query {
+  getProduct(id: ID!): Product
+  listProducts(limit: Int, offset: Int): [Product!]!
+}
+
+type Mutation {
+  addProduct(name: String!, quantity: Int!): Product!
+  updateStock(productId: ID!, delta: Int!): Product!
+  removeProduct(id: ID!): Boolean!
+}
+
+type Subscription {
+  streamStockAlerts(threshold: Int!): StockAlert!
+}

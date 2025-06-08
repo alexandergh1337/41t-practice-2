@@ -1,0 +1,4 @@
+strawberry-graphql[fastapi]
+uvicorn[standard]
+python-jose[cryptography]
+requests
